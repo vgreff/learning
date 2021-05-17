@@ -30,3 +30,5 @@ Images on docker hub
 docker pull hello-world
 docker run hello-world
 
+docker images
+docker pull ubuntu:devel
