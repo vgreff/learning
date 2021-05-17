@@ -25,6 +25,9 @@ https://docs.docker.com/docker-hub/official_images/
 https://hub.docker.com/search?q=&type=image&image_filter=official
 
 
+#moby project
+https://mobyproject.org/
+
 
 Images on docker hub
 docker pull hello-world
@@ -32,3 +35,48 @@ docker run hello-world
 
 docker images
 docker pull ubuntu:devel
+
+# newer commmand
+docker image ls
+docker container run 
+
+docker container run -it --name python-container e5  #e5 is start of id of image
+
+docker container ls -a
+
+docker container start python-container
+docker attach #id
+
+docker container rm #id
+
+docker rmi  #id                to remove an image
+
+docker login
+
+docker tag af7875a7cb63 vgreff/onboarding:latest
+docker push vgreff/onboarding
+
+docker container run -d nginx
+
+docker image history nginx  
+
+docker container inspect  ad3db302e7e2 | grep IPAdd
+
+docker container run -d -P nginx
+
+docker container run -d -p 80:80 httpd
+
+#to get our ip
+curl -4 icanhazip.com
+
+docker volume ls
+docker volume create devvolume
+docker volume inspect devvolume
+
+docker container run -d --name devcont --mount source=devvolume,target=/app nginx
+
+docker container inspect  devcont
+docker container exec -it  devcont sh
+
+docker container run -d --name devcont -v devvolume:/app nginx
+
