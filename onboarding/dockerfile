@@ -1,0 +1,4 @@
+FROM  ubuntu:devel
+LABEL maintainer="vince@greffsite.com"
+RUN apt-get update
+RUN apt-get install -y python3
