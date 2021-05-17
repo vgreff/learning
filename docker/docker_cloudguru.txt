@@ -18,3 +18,15 @@ docker ps
 
 
 https://docs.docker.com/engine/security/rootless/
+
+
+https://docs.docker.com/docker-hub/official_images/
+
+https://hub.docker.com/search?q=&type=image&image_filter=official
+
+
+
+Images on docker hub
+docker pull hello-world
+docker run hello-world
+
