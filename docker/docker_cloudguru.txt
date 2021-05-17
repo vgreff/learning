@@ -1,0 +1,20 @@
+Docker trainning
+
+Install 
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+
+sudo usermod -aG docker cloud_user 
+
+sudo systemctl start docker
+sudo systemctl enable docker
+
+
+logout and log back in
+
+docker info
+docker version
+docker ps
+
+
+https://docs.docker.com/engine/security/rootless/
