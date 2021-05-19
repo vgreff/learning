@@ -80,3 +80,7 @@ docker container exec -it  devcont sh
 
 docker container run -d --name devcont -v devvolume:/app nginx
 
+
+#delete all of the images and their layers from the volume connected to your job
+
+docker images --no-trunc --format '{{.ID}}' | xargs docker rmi or docker volume prune -f 
