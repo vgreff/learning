@@ -94,6 +94,7 @@ qchar char=name of macro, q again to stop recording marcro
 
 3 dd - deletes 3 lines
 
+https://www.youtube.com/watch?v=IiwGbcd8S7I excellent tutorial
 
 
 
