@@ -1,0 +1,99 @@
+Vi cmd
+
+vi +89 file.txt
+
+2 modes
+-command mode by default
+-press i for input mode
+-press ESC to go back to command mode
+-V visual mode,  use arrow keys to select full lines, d to delete , y copies to clipboard or any other command
+-v visual mode inside a line
+-ctrl-v  block editing (vertical), use d, r, y, p or I insert text and copy to all lines after ESC
+
+BTW arrow keys work in both command mode and insert mode
+
+command mode
+:q to quit
+:q! to quit
+
+navigate with arrows key or (hjkl) (left,down,up,right)
+{ or }   keys to skip a block of code up of down
+
+dd delete a line
+yy copying
+p pasting
+:e file1.txt    to edit another file
+:r read a file and insert in current buffer
+/searchtext top to bottom
+?searchtext bottom to top
+:%s/abc/xyz/g for replacing
+
+n for next search text top bottom
+N for next search text bottom top 
+O or o new line above or below
+r replace text instead of insert
+u undo
+ctrl-r redo an undo
+:u undo
+. repeat last command (think macro)
+:! ls -L
+:r !ls -l    for reading output of ls in current buffer
+:se ts=2   set tabstop to 2 spaces
+
+:w save current file
+:w! forceful save
+:wq save and quit
+:wq!
+:history  - show history of commands from command mode
+
+$ end of line
+^ or 0w beginning of line
+0 column zero
+w or b to move forward/backward 1 word at a time
+W or B  same but ignores ponctualtion
+% jumps to other () or {}
+x delete single char
+d% deletes that block
+dw deletes a word
+d} deletes a block
+d% deletes a parentethis
+a append after current position
+A append at end of line
+D  deletes to end of the line
+C  deletes to end of the line and enter insert mode = Change
+cw change current word (enter inserm mode)
+ct} change to next }
+r just replace a letter
+R replace until ESC
+* goes to a places of the word search
+zz recenters buffer so current line in the middle of the vertical
+fchar goes to next char
+tchar goes to space before next char
+~ changes the case of current char
+> indent line
+
+
+
+:1 first line
+gg goto top of file
+G last line
+:n goto n line
+
+:sp  split buffer horizontally 
+:vsp split buffer vertically
+ctrl-w arrow keys to switch to  windows
+ctrl-w - or +  or = to change size
+ctrl-w q   to close current
+ctrl-w r or R   to rotate windows to right or left current
+
+MACROS
+qchar char=name of macro, q again to stop recording marcro
+@char to replay macro
+20 @char replays macro 20 times
+
+
+3 dd - deletes 3 lines
+
+
+
+
