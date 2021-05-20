@@ -86,6 +86,20 @@ ctrl-w - or +  or = to change size
 ctrl-w q   to close current
 ctrl-w r or R   to rotate windows to right or left current
 
+when load many files
+vi *
+:n -> Move to next file
+:N -> Move to previous file
+:args          show all command lines args
+
+Commands to switch between buffers:
+:bf            # Go to first file.
+:bl            # Go to last file
+:bn            # Go to next file.
+:bp            # Go to previous file.
+:bw            # Close file.
+:ls            list buffers
+
 MACROS
 qchar char=name of macro, q again to stop recording marcro
 @char to replay macro
