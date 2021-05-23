@@ -10,12 +10,12 @@ git submodule update --init --recursive
 
 . ./bash_aliases
 
-. setup_emacs.d-vg.sh
+. conf/setup_emacs.d-vg.sh
 . ~/.bashrc
 
-. setup_install_extra.sh
+. conf/setup_install_extra.sh
 
-# . setup_install_emacs.sh
+# . conf/setup_install_emacs.sh
 
 cat ~/.bashrc
 echo ". ~/.bashrc"
