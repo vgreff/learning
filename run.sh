@@ -6,6 +6,7 @@ else
      export YUM=apt
 fi
 
+git submodule update --init --recursive
 
 . ./bash_aliases
 
