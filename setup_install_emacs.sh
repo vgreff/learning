@@ -1,3 +1,3 @@
-sudo yum install -y emacs
+sudo $YUM install -y emacs
 
 

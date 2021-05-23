@@ -1,5 +1,5 @@
 #extra install
 
-sudo yum install -y tig
-sudo yum install -y elinks
+sudo $YUM install -y tig
+sudo $YUM install -y elinks
 

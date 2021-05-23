@@ -1,4 +1,12 @@
 
+if [ -z `which apt`  ]
+then
+     export YUM=yum
+else
+     export YUM=apt
+fi
+
+
 . ./bash_aliases
 
 . setup_emacs.d-vg.sh
@@ -12,3 +20,5 @@ cat ~/.bashrc
 echo ". ~/.bashrc"
 
 setenv EDITOR vi
+
+
