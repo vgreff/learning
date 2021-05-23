@@ -1,8 +1,8 @@
-Vi cmd
+# Vi cmd
 
 vi +89 file.txt
 
-2 modes
+## modes
 -command mode by default
 -press i for input mode
 -press ESC to go back to command mode
@@ -12,79 +12,107 @@ vi +89 file.txt
 
 BTW arrow keys work in both command mode and insert mode
 
-command mode
+## command mode
 :q to quit
-:q! to quit
-
-navigate with arrows key or (hjkl) (left,down,up,right)
-{ or }   keys to skip a block of code up of down
-
-dd delete a line
-yy copying
-p pasting
-:e file1.txt    to edit another file
-:r read a file and insert in current buffer
-/searchtext top to bottom
-?searchtext bottom to top
-:%s/abc/xyz/g for replacing
-
-n for next search text top bottom
-N for next search text bottom top 
-O or o new line above or below
-r replace text instead of insert
-u undo
-ctrl-r redo an undo
-:u undo
-. repeat last command (think macro)
-:! ls -L
-:r !ls -l    for reading output of ls in current buffer
-:se ts=2   set tabstop to 2 spaces
+:q! to force quit
 
 :w save current file
 :w! forceful save
 :wq save and quit
-:wq!
+:wq! same but forces
+
 :history  - show history of commands from command mode
 
+navigate with arrows key or (hjkl) (left,down,up,right)
+{ or }   keys to skip a block of code up of down
+
+### copy/paste
+dd delete a line
+yy copying
+p pasting
+
+:e file1.txt    to edit another file
+:r read a file and insert in current buffer
+
+### search/replace
+/searchtext top to bottom
+?searchtext bottom to top
+n for next search text top bottom
+N for next search text bottom top 
+* goes to a places of the word search
+fchar goes to next char
+tchar goes to space before next char
+
+:%s/abc/xyz/g for replacing
+
+### undo/redo/repaet
+u undo
+ctrl-r redo an undo
+:u undo
+. repeat last command (think macro)
+
+### shell
+:! ls -L
+:r !ls -l    for reading output of ls in current buffer
+
+:se ts=4   set tabstop to 2 spaces
+
+### naviagtion
+O or o new line above or below
+r replace text instead of insert
+i insert mode
+a append after current position
+A append at end of line
+
+### naviagtion in a line
 $ end of line
 ^ or 0w beginning of line
 0 column zero
+
 w or b to move forward/backward 1 word at a time
 W or B  same but ignores ponctualtion
+
+### naviagtion across lines
 % jumps to other () or {}
-x delete single char
-d% deletes that block
-dw deletes a word
-d} deletes a block
-d% deletes a parentethis
-a append after current position
-A append at end of line
-D  deletes to end of the line
-C  deletes to end of the line and enter insert mode = Change
-cw change current word (enter inserm mode)
-ct} change to next }
-r just replace a letter
-R replace until ESC
-* goes to a places of the word search
-zz recenters buffer so current line in the middle of the vertical
-fchar goes to next char
-tchar goes to space before next char
-~ changes the case of current char
-> indent line
-
-
-
+{ or }   keys to skip a block of code up of down
 :1 first line
 gg goto top of file
 G last line
 :n goto n line
 
+### delete
+x delete single char
+d% deletes that block
+dw deletes a word
+d} deletes a block
+d% deletes a parenthethis block
+D  deletes to end of the line
+C  deletes to end of the line and enter insert mode = Change
+3 dd - deletes 3 lines
+
+### change text
+cw change current word (enter inserm mode)
+ct} change to next }
+r just replace a letter
+R replace until ESC
+~ changes the case of current char
+> indent line
+
+
+zz recenters buffer so current line in the middle of the vertical
+
+### split windows
 :sp  split buffer horizontally 
 :vsp split buffer vertically
 ctrl-w arrow keys to switch to  windows
 ctrl-w - or +  or = to change size
 ctrl-w q   to close current
 ctrl-w r or R   to rotate windows to right or left current
+
+### MACROS
+qchar char=name of macro, q again to stop recording marcro
+@char to replay macro
+20 @char replays macro 20 times
 
 when load many files
 vi *
@@ -100,14 +128,7 @@ Commands to switch between buffers:
 :bw            # Close file.
 :ls            list buffers
 
-MACROS
-qchar char=name of macro, q again to stop recording marcro
-@char to replay macro
-20 @char replays macro 20 times
-
-
-3 dd - deletes 3 lines
-
+### Ctrl-P mode
 ctrl-p to activate ctrlp
 Press <c-f> and <c-b> to cycle between modes or ctr up/down arrow keys 
 Press <c-d> to switch to filename only search instead of full path.
@@ -118,43 +139,43 @@ Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
 Use <c-y> to create a new file and its parent directories.
 Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 
-MAGIT
+### MAGIT mode
 :Magit  to activate
 
-
-
+## Links
 https://www.youtube.com/watch?v=IiwGbcd8S7I excellent tutorial
 
-
+## line numbers
 https://jeffkreeftmeijer.com/vim-number/
-" turn absolute line numbers on
+- turn absolute line numbers on
 :set number
 :set nu
 
-" turn absolute line numbers off
+- turn absolute line numbers off
 :set nonumber
 :set nonu
 
-" toggle absolute line numbers
+- toggle absolute line numbers
 :set number!
 :set nu!
 
-" turn relative line numbers on
+- turn relative line numbers on
 :set relativenumber
 :set rnu
 
-" turn relative line numbers off
+- turn relative line numbers off
 :set norelativenumber
 :set nornu
 
-" toggle relative line numbers
+- toggle relative line numbers
 :set relativenumber!
 :set rnu!
 
-" turn hybrid line numbers off
+- turn hybrid line numbers off
 :set nonumber norelativenumber
 :set nonu nornu
 
+## plugins
 https://github.com/vim-airline/vim-airline
 https://github.com/ctrlpvim/ctrlp.vim
 https://github.com/jreybert/vimagit

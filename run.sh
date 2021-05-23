@@ -1,15 +1,14 @@
-#extra install
 
-sudo yum install -y tig
+. ./bash_aliases
 
-git clone https://github.com/vim-airline/vim-airline ~/.vim/pack/dist/start/vim-airline
-ln -s `pwd`/.vimrc ~/.vimrc
-
-echo "source `pwd`/bash_aliases" >> ~/.bashrc
-
+. setup_emacs.d-vg.sh
 . ~/.bashrc
 
-cat ~/.bashrc
+. setup_install_extra.sh
 
+# . setup_install_emacs.sh
+
+cat ~/.bashrc
 echo ". ~/.bashrc"
 
+setenv EDITOR vi
