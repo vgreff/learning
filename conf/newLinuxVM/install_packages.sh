@@ -13,6 +13,14 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 
 yum check-update
 sudo yum install code
+sudo apt install -y terminator
+
+sudo yum install cmake
+sudo yum install epel-release
+sudo dnf config-manager --set-enabled powertools
+sudo yum install ninja-build
+sudo yum groupinstall "Development Tools" -y
+sudo pip3 install conan
 
 else
 #------------------------------------------
@@ -27,5 +35,21 @@ rm -f packages.microsoft.gpg
 sudo apt install apt-transport-https
 sudo apt update
 sudo apt install code
+sudo apt install -y terminator
+
+# https://computingforgeeks.com/how-to-manage-c-packages-using-conan/
+sudo apt install -y  python3 python3-pip
+sudo apt-get install -y build-essential
+sudo apt install -y cmake ninja-build
+sudo pip3 install conan
+
+sudo apt  install -y cmake-qt-gui 
+sudo apt install -y meld
+sudo apt install -y gitk
+sudo apt  install -y gh 
+sudo apt install -y ddd
+
+#sudo apt list --upgradable
+#sudo apt upgrade
 
 fi
