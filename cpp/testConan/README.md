@@ -17,6 +17,7 @@ cp ../_conan/profiles ~/.conan
 ## building
 
 ```
+rm -rf build
 mkdir build
 cd build
 conan install ..
