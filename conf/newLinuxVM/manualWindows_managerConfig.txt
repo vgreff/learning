@@ -1,0 +1,19 @@
+1) Menu > Settings > Window Manager
+-> Focus -> Focus follows mouse
+-> Keyboard
+    fix tile widow keybinding to use arrow keys
+    remove all ctrl + 1-9 workspace selection
+
+
+2) Menu > Settings > Workspaces
+create 16
+
+3) taskbar
+drag firefox and termanial onto the taskbar next to start button
+add workspace switcher to left of panel
+
+
+4) Alt + click not working in vscode (multicursor)
+Menu > Settings > Window Manager Tweaks > Accessibility tab ...
+can change the Alt key to Super  (Super is Windows key)
+
