@@ -13,6 +13,8 @@
 			"  using  Ptr = SPtr;",
 			"  template<class... Args >",
 			"  static Ptr make( Args&&... args ) { return std::make_shared<$1>(args ...); }",
+			"",
+			"  using  Vector = std::vector<$1::Ptr>;",
 			"public:",
 			"  $1(${3:/* args */});",
 			"",
