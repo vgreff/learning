@@ -1,0 +1,546 @@
+{
+	"classv": {
+		"prefix": "clv",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"class ${1:${TM_FILENAME_BASE}}",
+			"{",
+			"public:",
+			"  using  SPtr = std::shared_ptr<$1>;",
+			"  using  UPtr = std::unique_ptr<$1>;",
+			"",
+			"  using  Ptr = SPtr;",
+			"  template<class... Args >",
+			"  static Ptr make( Args&&... args ) { return std::make_shared<$1>(args ...); }",
+			"public:",
+			"  $1(${3:/* args */});",
+			"",
+			"   friend std::ostream& operator<<(std::ostream& out, const $1& obj);",
+			"private:",
+			"  ${2:int64_t _val{0\\};}",
+			"};",
+			"",
+			"$1::${1:${TM_FILENAME_BASE}}($3)",
+			"{",
+			"}",
+			"",
+			"std::ostream& operator<<(std::ostream& out, const $1& obj)",
+			"{",
+			"     out << \"$1:{ \";",
+			"",
+			"     out << \"}\";",
+			"     return out;",
+			"}"
+		]
+	},	"class destructor": {
+		"prefix": "cld",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"$0  ~${1:${TM_FILENAME_BASE}}();",
+			"",
+			"${1:${TM_FILENAME_BASE}}::~${1:${TM_FILENAME_BASE}}()",
+			"{",
+			"}"
+		]
+	},
+	"compare operator rest": {
+		"prefix": "ucopa",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"inline friend bool operator> (const ${1:X}& lhs, const ${1:X}& rhs) { return rhs < lhs; }",
+			"inline friend bool operator<=(const ${1:X}& lhs, const ${1:X}& rhs) { return !(lhs > rhs); }",
+			"inline friend bool operator>=(const ${1:X}& lhs, const ${1:X}& rhs) { return !(lhs < rhs); }",
+			"inline friend bool operator!=(const ${1:X}& lhs, const ${1:X}& rhs) { return !(lhs == rhs); }",
+			"$0"
+		]
+	},
+	"compare operator ": {
+		"prefix": "ucop",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"    inline friend bool operator${1|<,>,==,!=,<=,>=|}(const ${2:T}& lhs, const ${2:T}& rhs)",
+			"    {",
+			"        // compares ${3:n} to rhs.$3,",
+			"        // then ${4:s} to rhs.$4,",
+			"        // then ${5:d} to rhs.$5",
+			"        return std::tie(lhs.$3, lhs.$4, lhs.$5) $1 std::tie(rhs.$3, rhs.$4, rhs.$5);",
+			"    }"
+		]
+	},
+	"compare operator old": {
+		"prefix": "ucopm",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"    bool operator${1|<,>,==,!=,<=,>=|}(const ${2:T}& rhs) const",
+			"    {",
+			"        // compares ${3:n} to rhs.$3,",
+			"        // then ${4:s} to rhs.$4,",
+			"        // then ${5:d} to rhs.$5",
+			"        return std::tie($3, $4, $5) $1 std::tie(rhs.$3, rhs.$4, rhs.$5);",
+			"    }"
+		]
+	},
+	"std::cout": {
+		"prefix": "ct",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"std::cout $0"
+		]
+	},
+	"std::cerr": {
+		"prefix": "cr",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"std::cerr $0"
+		]
+	},	
+	"std::endl": {
+		"prefix": "en",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"<< std::endl;",
+			"$0"
+		]
+	},
+	"std::ends": {
+		"prefix": "ens",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"<< std::ends;",
+			"$0"
+		]
+	},
+	"#include <>": {
+		"prefix": "ig",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <${1|lib1/,c++/11/,boost/|}${2:header}${3:.hpp}>",
+			"$0"
+		]
+	},
+	"stream variable": {
+		"prefix": "cv",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"<< \"${1:myVar}=\" <<${2| , obj._|}$1 << \"${3|\\n,\\, , ,\\,,\\|, \\| |}\"",
+			"$0"
+		]
+	},
+	"stream variable string": {
+		"prefix": "cvs",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"<< \"${1:myVar}=\" << '\"' <<${2| , obj._|}$1 << '\"' << \"${3|\\n,\\, , ,\\,,\\|, \\| |}\"",
+			"$0"
+		]
+	},
+	"enum class": {
+		"prefix": "enu",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"enum class ${1:Color} : ${2:uint8_t} { ${3:red} = 1, ${4:green}, ${5:blue} };",
+			"$1 r = $1::$5;",
+			" ",
+			"switch(r)",
+			"{",
+			"    case $1::$3  : std::cout << \"$3\\n\";   break;",
+			"    case $1::$4: std::cout << \"$4\\n\"; break;",
+			"    case $1::$5 : std::cout << \"$5\\n\";  break;",
+			"}",
+			" ",
+			"// $2 n = r; // error: no implicit conversion from scoped enum to $2",
+			"$2 n = static_cast<$2>(r); // OK, n = 3"
+		]
+	},
+	"reinterpret_cast": {
+		"prefix": "urct",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"reinterpret_cast<${1:TYPE}*>(&${2:myVar});",
+			"$0"
+		]
+	},	"dynamic_cast": {
+		"prefix": "udct",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"dynamic_cast<${1:TYPE}*>(&${2:myVar});",
+			"$0"
+		]
+	},	"const_cast": {
+		"prefix": "ucct",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"const_cast<${1:TYPE}*>(&${2:myVar});",
+			"$0"
+		]
+	},
+	"sizeof(T)": {
+		"prefix": "sz",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"sizeof(${1:TYPE})$0"
+		]
+	},
+	"std::vector<>": {
+		"prefix": "usv",
+		"scope": "cpp",
+		"body": [
+			"std::vector<${1:ValueType}> ${0:myVar};"
+		]
+	},
+	"#include <vector>": {
+		"prefix": "isv",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <vector>",
+			"$0"
+		]
+	},
+	"make_shared<>": {
+		"prefix": "ums",
+		"scope": "cpp",
+		"body": [
+			"std::shared_ptr<${1:T}> ${2:ptr} = std::make_shared<${1:T}>(${3:constructorArgs});",
+			"$0"
+		]
+	},
+	"make_unique<>": {
+		"prefix": "umu",
+		"scope": "cpp",
+		"body": [
+			"std::unique_ptr<${1:T}>  ${2:ptr} = std::unique<${1:T}>(${3:constructorArgs});",
+			"$0"
+		]
+	},
+	"shared_ptr<>": {
+		"prefix": "usp",
+		"scope": "cpp",
+		"body": [
+			"std::shared_ptr<${1:T}> ${2:ptr};",
+			"$0"
+		]
+	},
+	"unique_ptr<>": {
+		"prefix": "uup",
+		"scope": "cpp",
+		"body": [
+			"std::unique_ptr<${1:T}>  ${2:ptr};",
+			"$0"
+		]
+	},
+	"#include <memory> ptr": {
+		"prefix": "ipt",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <memory>",
+			"$0"
+		]
+	},
+	"#include <iostream>": {
+		"prefix": "iio",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <iostream>",
+			"$0"
+		]
+	},
+	"#include <strstream>": {
+		"prefix": "iss",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <type_traits>",
+			"$0"
+		]
+	},
+	"#include <tuple>": {
+		"prefix": "itu",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <tuple>",
+			"$0"
+		]
+	},
+	"#include <type_traits>": {
+		"prefix": "itt",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <type_traits>",
+			"$0"
+		]
+	},
+	"std::variant": {
+		"prefix": "usva",
+		"scope": "cpp",
+		"body": [
+			"std::variant <${1:T1}, ${2:T2}, ${3:T3}> ${0:myVar};"
+		]
+	},
+	"std::variant holds_alternative": {
+		"prefix": "usvai",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"if (std::holds_alternative<${1:T}>(${2:myVar}))",
+			"{",
+			"    std::cout << std::get<$1>($2)$0  << std::endl;",
+			"}"
+		]
+	},
+	"#include <variant>": {
+		"prefix": "isva",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <variant>",
+			"$0"
+		]
+	},
+	"std::map<Key, T, Compare>": {
+		"prefix": "usm",
+		"scope": "cpp",
+		"body": [
+			"std::map<${1:Key}, ${2:T}, Compare = ${3:std::less}<$1>> ${0:myVar};"
+		]
+	},
+	"#include <map>": {
+		"prefix": "ism",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <map>",
+			"$0"
+		]
+	},
+	"std::unordered_map<Key, T, Hash, KeyEqual>": {
+		"prefix": "usum",
+		"scope": "cpp",
+		"body": [
+			"std::unordered_map<${1:Key}, ${2:T}, Hash = ${3:std::hash}<$1>, KeyEqual = ${3:std::equal_to}<$1>> ${0:myVar};"
+		]
+	},
+	"#include <unordered_map>": {
+		"prefix": "isum",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <unordered_map>",
+			"$0"
+		]
+	},
+	"std::multimap<Key, T, Compare>": {
+		"prefix": "usmm",
+		"scope": "cpp",
+		"body": [
+			"std::multimap<${1:Key}, ${2:T}, Compare = ${3:std::less}<$1>> ${0:myVar};"
+		]
+	},
+	"#include <map> multimap": {
+		"prefix": "ismm",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <map>",
+			"$0"
+		]
+	},
+
+	"std::list<>": {
+		"prefix": "usl",
+		"scope": "cpp",
+		"body": [
+			"std::list<${1:ValueType}> ${0:myVar};"
+		]
+	},
+	"#include <list>": {
+		"prefix": "isl",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <list>",
+			"$0"
+		]
+	},
+	"std::string": {
+		"prefix": "uss",
+		"scope": "cpp",
+		"body": [
+			"std::string"
+		]
+	},
+	"#include <string>": {
+		"prefix": "iss",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <string>",
+			"$0"
+		]
+	},
+	"const": {
+		"prefix": "co",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"const"
+		]
+	},
+	"using": {
+		"prefix": "us",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"using "
+		]
+	},
+	"friend": {
+		"prefix": "fr",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"friend "
+		]
+	},
+	"namespace": {
+		"prefix": "na",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"namespace "
+		]
+	},
+	"unsigned": {
+		"prefix": "un",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"unsigned"
+		]
+	},
+	"volatile": {
+		"prefix": "vo",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"volatile"
+		]
+	},
+	"mutable": {
+		"prefix": "mu",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"mutable"
+		]
+	},
+	"double": {
+		"prefix": "dou",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"double"
+		]
+	},
+	"float": {
+		"prefix": "fl",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"float"
+		]
+	},
+	"void": {
+		"prefix": "vo",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"void"
+		]
+	},
+	"char": {
+		"prefix": "ch",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"char"
+		]
+	},
+	"uint64_t": {
+		"prefix": "u64",
+		"scope": "cpp",
+		"body": [
+			"uint64_t"
+		]
+	},
+	"int64_t": {
+		"prefix": "i64",
+		"scope": "cpp",
+		"body": [
+			"int64_t"
+		]
+	},
+	"uint32_t": {
+		"prefix": "u32",
+		"scope": "cpp",
+		"body": [
+			"uint32_t"
+		]
+	},
+	"int32_t": {
+		"prefix": "i32",
+		"scope": "cpp",
+		"body": [
+			"int32_t"
+		]
+	},
+	"uint16_t": {
+		"prefix": "u16",
+		"scope": "cpp",
+		"body": [
+			"uint16_t"
+		]
+	},
+	"int16_t": {
+		"prefix": "i16",
+		"scope": "cpp",
+		"body": [
+			"int16_t"
+		]
+	},
+	"uint8_t": {
+		"prefix": "u8",
+		"scope": "cpp",
+		"body": [
+			"uint8_t"
+		]
+	},
+	"int8_t": {
+		"prefix": "i8",
+		"scope": "cpp",
+		"body": [
+			"int8_t"
+		]
+	}
+}

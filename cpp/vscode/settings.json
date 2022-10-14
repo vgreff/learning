@@ -1,0 +1,15 @@
+{
+    "git.confirmSync": false,
+    "files.autoSave": "afterDelay",
+    "manpages.binary.args": [
+        
+    "-s",  "2,3,4,5,6,7,8"
+    ],
+    "manpages.apropos.args": [
+    
+    ],
+    "window.zoomLevel": 1,
+    "cmake.configureOnOpen": true,
+    "gitlens.mode.active": "review"
+
+}

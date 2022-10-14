@@ -1,0 +1,70 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+f5",
+        "command": "-cmake.debugTarget",
+        "when": "cmake:enableFullFeatureSet && inCMakeProject && !cmake:hideDebugCommand && !inDebugMode"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "deleteAllRight"
+    },
+    {
+        "key": "alt+d",
+        "command": "editor.action.duplicateSelection"
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "alt+enter",
+        "command": "workbench.output.action.clearOutput"
+    },
+    {
+        "key": "ctrl+alt+\\",
+        "command": "workbench.action.splitEditorDown"
+    },
+    {
+        "key": "alt+meta+u",
+        "command": "editor.action.transformToUppercase"
+    },
+    {
+        "key": "alt+meta+l",
+        "command": "editor.action.transformToLowercase"
+    },
+    {
+        "key": "home",
+        "command": "cursorLineStart"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "cursorLineStart"
+    },
+    {
+        "key": "ctrl+meta+a",
+        "command": "editor.action.selectAll"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "cursorEnd",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "deleteRight",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "workbench.view.scm",
+    },
+    {
+        "key": "shift+alt+enter",
+        "command": "workbench.action.maximizeEditor"
+    },
+    {
+        "key": "shift+alt+enter",
+        "command": "workbench.action.toggleEditorWidths"
+    }
+]
