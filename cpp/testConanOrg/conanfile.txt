@@ -1,6 +1,5 @@
 [requires]
 sqlite3/3.39.4
-boost/1.80.0
 
 [generators]
 cmake
