@@ -10,7 +10,7 @@ int main()
 
   if (SQLITE_OK == rc)
   {
-    std::cout << "Opened SQLite database successfully! VG1\n";
+    std::cout << "Opened SQLite database successfully! VG2\n";
     sqlite3_close(db);
   }
   else
