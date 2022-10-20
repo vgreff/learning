@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "cpp/testConan"
+		},
+		{
+			"path": "cpp/Sample"
 		}
 	],
 	"settings": {
