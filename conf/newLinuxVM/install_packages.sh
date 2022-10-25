@@ -64,6 +64,7 @@ sudo apt install -y texinfo
 sudo apt install -y zsh
 sudo apt install -y doxygen
 sudo apt install -y vim  
+sudo apt install -y rename
 
 sudo apt install -y open-vm-tools-desktop open-vm-tools
 lsmod | grep vmw

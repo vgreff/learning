@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "cpp/Sample"
+		},
+		{
+			"path": "cpp/playWithCpp"
 		}
 	],
 	"settings": {

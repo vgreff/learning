@@ -13,10 +13,10 @@ class SampleAppConan(ConanFile):
 
     default_options = {"poco:shared": True, "openssl:shared": True}
 
-    def imports(self):
-        self.copy("*.so", dst="bin", src="bin")  # From bin to bin
-        self.copy("*.so", dst="lib", src="lib")  # From lib to lib
-        self.copy("*.a*", dst="lib", src="lib")  # From lib to lib
+    # def imports(self):
+    #     self.copy("*.so", dst="bin", src="bin")  # From bin to bin
+    #     self.copy("*.so", dst="lib", src="lib")  # From lib to lib
+    #     self.copy("*.a*", dst="lib", src="lib")  # From lib to lib
 
 
     def build(self):
