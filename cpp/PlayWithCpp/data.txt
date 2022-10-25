@@ -1,0 +1,5 @@
+C string that contains the text to be written to stdout.
+It can optionally contain embedded format specifiers 
+that are replaced by the values specified in subsequent additional arguments and formatted as requested.
+
+A format specifier follows this prototype: [see compatibility note below]
