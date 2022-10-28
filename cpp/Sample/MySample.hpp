@@ -6,7 +6,7 @@
 #include <memory>
 
 
-namespace vgb
+namespace vbg
 {
     class MySample
     {
@@ -28,5 +28,5 @@ namespace vgb
     };
     
 
-} // end namespace vgb
+} // end namespace vbg
 

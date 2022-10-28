@@ -1,7 +1,7 @@
 #include "MySample.hpp"
 
 
-namespace vgb
+namespace vbg
 {
     MySample::MySample(/* args */)
     {
@@ -15,4 +15,4 @@ namespace vgb
          return out;
     }
     
-} // namespace vgb
+} // namespace vbg
