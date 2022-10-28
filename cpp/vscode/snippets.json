@@ -1,8 +1,0 @@
-{
-    "cpp": {
-      "snippets": {
-        "uss" :"std::string ",
-        "usv" : "std::vector<type> "
-      }
-    }
-}

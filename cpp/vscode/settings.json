@@ -8,7 +8,6 @@
     "manpages.apropos.args": [
     
     ],
-    "window.zoomLevel": 1,
     "cmake.configureOnOpen": true,
     "gitlens.mode.active": "review"
 
