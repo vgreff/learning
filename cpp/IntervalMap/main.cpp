@@ -79,7 +79,6 @@ std::ostream& operator<<(std::ostream& out, const ImKey<T>& obj)
   out << "ImKey:{ ";
   out << "startVal=" << obj.startVal_ << ", "
       << "endVal=" << obj.endVal_ << " ";
-
   out << "}";
   return out;
 }
