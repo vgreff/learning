@@ -1,6 +1,10 @@
 
 #include <iostream>
 #include <memory>
+#include <functional>
+#include <string>
+#include <unordered_set>
+#include <unordered_map>
 
 #include "MyIntervalMap.hpp"
 
@@ -24,7 +28,21 @@ public:
 public:
   ImKey(T startVal, T endVal);
 
-   friend std::ostream& operator<< <T>(std::ostream& out, const ImKey<T>& obj);
+  inline friend bool operator==(const ImKey<T>& lhs, const ImKey<T>& rhs)
+  {
+      // compares startVal_ to rhs.startVal_,
+      // then endVal_.endVal_     // then d to rhs.d
+      return std::tie(lhs.startVal_, lhs.endVal_) == std::tie(rhs.startVal_, rhs.endVal_);
+  }
+
+   std::size_t hash() const
+    {
+        std::size_t h1 = std::hash<T>{}(startVal_);
+        std::size_t h2 = std::hash<T>{}(endVal_);
+        return h1 ^ (h2 << 8); // or use boost::hash_combine
+    }
+
+   friend std::ostream& operator<< <>(std::ostream& out, const ImKey<T>& obj);
 private:
   T startVal_{0};
   T endVal_{0};
@@ -53,9 +71,16 @@ public:
 public:
   IntervalMap(T notFoundVal);
 
-   friend std::ostream& operator<< <Key, T>(std::ostream& out, const IntervalMap<Key, T>& obj);
+  void add(const Key& keyStart, const Key& keyEnd, const T& val)
+  {
+    ImKey<Key> myKey(keyStart, keyEnd);
+    directHit_.insert_or_assign(myKey, val);
+  }
+
+  friend std::ostream& operator<< <>(std::ostream& out, const IntervalMap<Key, T>& obj);
 private:
   T notFoundVal_;
+  std::unordered_map<ImKey<Key>, T > directHit_;
 };
 
 template <typename Key, typename T>
@@ -84,6 +109,25 @@ std::ostream& operator<<(std::ostream& out, const ImKey<T>& obj)
 }
 } // namespace vbg
 
+template <typename T>
+struct std::hash<vbg::ImKey<T>>
+{
+    std::size_t operator()(const vbg::ImKey<T>& s) const noexcept
+    {
+      return s.hash();
+    }
+};
+
+template <typename T>
+struct std::equal_to<vbg::ImKey<T>>
+{
+    std::size_t operator()(const vbg::ImKey<T>& lhs, const vbg::ImKey<T>& rhs) const noexcept
+    {
+      return lhs == rhs;
+    }
+};
+
+
 int main()
 {
   using namespace vbg;
@@ -96,7 +140,9 @@ int main()
   std::cout << "key=" << key << "\n";
   
 
-  IntervalMap<int, char> im('A');
+  IntervalMap<int64_t, char> im('A');
+  im.add(5,10,'B');
+
   std::cout << "intervalMap=" << im << "\n";
 
   return 0;
