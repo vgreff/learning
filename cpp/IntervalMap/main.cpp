@@ -87,15 +87,27 @@ public:
 
   void add(const Key& keyStart, const Key& keyEnd, const T& val)
   {
+    const ImData<Key, T> search(keyStart, keyEnd, val);
     ImData<Key, T> myKey(keyStart, keyEnd, val);
-    fakeTotest_.insert_or_assign(myKey, val);
-    directHit_.insert_or_assign(keyStart, val);
+    // fakeTotest_.insert_or_assign(myKey, val);
+    // auto& search = directHit_.find(myKey);
+    // if (search != directHit_.end())
+    // {
+    //   std::cout << "Found " << (*search) << '\n';
+    //   (*search) = myKey;
+    // }
+    // else
+    // {
+    //   std::cout << "Not found\n";
+    // }
+    directHit_.erase(search);
+    directHit_.insert(myKey);
   }
 
   friend std::ostream& operator<< <>(std::ostream& out, const IntervalMap<Key, T>& obj);
 private:
   T notFoundVal_;
-  std::unordered_map<Key, T > directHit_;
+  std::unordered_set<ImData<Key, T>> directHit_;
   std::unordered_map<ImData<Key, T>, T > fakeTotest_;
 };
 
@@ -155,6 +167,7 @@ int main()
 
   IntervalMap<int64_t, char> im('A');
   im.add(5,10,'B');
+  im.add(5,15,'D');
 
   std::cout << "intervalMap=" << im << "\n";
 
