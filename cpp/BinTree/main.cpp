@@ -1,136 +1,147 @@
-#include <cstdio>
 #include <iostream>
 #include <memory>
 
-using namespace std;
-
-
-struct Node
+class Node
 {
-  Node(int val, int order, int pos) : val_(val), order_(order), pos_(pos) {}
-
+public:
   using Ptr = std::unique_ptr<Node>;
-  int nbSmallerChildren_{0};
-  int nbBiggerChildren_{0};
-  Ptr  left_;
-  int   val_{0};
-  int   order_{0};
-  int   pos_{0};
-  Ptr right_;
 
-  void print(int level )
+  Node(int val, int order) : val_(val), order_(order) {}
+
+  void print(int level = 0)
   {
     std::string space;
-    space.insert(0, level*3,' ');
-    std::cout 
-    << space
-    << "level=" << level << " "
-    << "val=" << val_ << ", "
-    << "pos=" << pos_ << ", "
-    << "order=" << order_ << ", "
-    << "nbSmallerChildren=" << nbSmallerChildren_ << ", "
-    << "nbBiggerChildren=" << nbBiggerChildren_ << ", "
-    << std::endl;
+    space.insert(0, level * 3, ' ');
+    std::cout
+        << space
+        << "level=" << level << " "
+        << "val=" << val_ << ", "
+        << "order=" << order_ << ", "
+        << "nbSmallerChildren=" << nbSmallerChildren_ << ", "
+        << "nbBiggerChildren=" << nbBiggerChildren_ << ", "
+        << std::endl;
   }
-};
 
+private:
+  int nbSmallerChildren_{0};
+  int nbBiggerChildren_{0};
+  Ptr left_;
+  int val_{0};
+  int order_{0};
+  Ptr right_;
+
+  friend class BinTree;
+};
 
 class BinTree
 {
   Node::Ptr root_;
-  int       order_{0};
+  Node::Ptr notFound_;
+  int order_{0};
 
 public:
+  void insert(int val) { insert(root_, val); }
+  Node::Ptr &index(int pos) { return index(root_, pos, 0); }
 
-  void insert(int val, int pos)  { insert(root_, val, pos);  }
-  void print()  { print(root_, 0);  }
+  void print() const
+  {
+    std::cout << "TreeSize=" << size() << "\n";
+    print(root_, 0);
+  }
+  int size() const { return order_; }
 
 private:
-  void print(Node::Ptr& node, int level)
+  void print(const Node::Ptr &node, int level) const
   {
 
     if (node)
     {
       {
         node->print(level);
-        print(node->left_, level+1);
-        print(node->right_, level+1);
+        print(node->left_, level + 1);
+        print(node->right_, level + 1);
       }
-    } 
+    }
   }
-  int insert(Node::Ptr& node, int val, int pos)
+  int insert(Node::Ptr &node, int val)
   {
     if (node)
     {
       if (node->val_ > val)
       {
-        int res = insert(node->left_, val, pos); // 0
-        node->nbSmallerChildren_ = res + 1;
-        return node->nbSmallerChildren_+ node->nbBiggerChildren_;
+        int res = insert(node->left_, val);
+        node->nbSmallerChildren_ += res;
+        return res;
       }
       else
       {
-        int res = insert(node->right_, val, pos);// node->nbSmallerChildren_
-        node->nbBiggerChildren_ = res + 1;
-        return node->nbBiggerChildren_;
+        int res = insert(node->right_, val);
+        node->nbBiggerChildren_ += res;
+        return res;
       }
     }
-    else 
+    else
     {
-      node = std::make_unique<Node>(val, order_++, pos);
-      return 0;
+      node = std::make_unique<Node>(val, order_++);
+      return 1;
     }
   }
-  Node::Ptr& index(Node::Ptr& node,  int pos)
+
+  Node::Ptr &index(Node::Ptr &node, int pos, int offset)
   {
     if (node)
     {
-      if (node->nbSmallerChildren_ < pos)
+      if ((node->nbSmallerChildren_ + offset) == pos)
       {
-        index(node->left_, pos);
+        return node;
       }
       else
       {
-        index(node->right_, pos);
+        if ((node->nbSmallerChildren_ + offset) > pos)
+        {
+          return index(node->left_, pos, offset);
+        }
+        else
+        {
+          return index(node->right_, pos, offset + node->nbSmallerChildren_ + 1);
+        }
       }
     }
-    else 
-    {
-    }
+    return notFound_;
   }
 };
 
-
-// To execute C++, please define "int main()"
-int main() 
+int main()
 {
   BinTree tree;
-  tree.insert(15, 5);
-  tree.insert(10, 1);
-  tree.insert(5, 0);
-  // tree.insert(25, 4);
-  tree.insert(14,4);
-  tree.insert(13,3);
-  tree.insert(12,2);
+  tree.insert(15);
+  tree.insert(10);
+  tree.insert(5);
+  tree.insert(25);
+  tree.insert(14);
+  tree.insert(13);
+  tree.insert(12);
+  tree.insert(45);
+  tree.insert(35);
+  tree.insert(55);
 
   tree.print();
+  
+  std::cout << "\n";
+
+  for (int i = 0; i < tree.size(); i++)
+  {
+    std::cout << i << "   ";
+    auto &found = tree.index(i);
+    if (found)
+    {
+      found->print();
+    }
+    else
+    {
+      std::cout << "NOT FOUND\n";
+    }
+  }
 
   return 0;
 }
-
-
-// Your previous Plain Text content is preserved below:
-
-// This is just a simple shared plaintext pad, with no execution capabilities.
-
-// When you know what language you'd like to use for your interview,
-// simply choose it from the dots menu on the tab, or add a new language
-// tab with the + button.
-
-// You can also change the default language your pads are created with
-// in your account settings: https://app.coderpad.io/settings
-
-// Enjoy your interview!
-
-// str
-
