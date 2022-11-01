@@ -61,6 +61,7 @@ namespace vbg
   private:
     T startVal_;
     T endVal_;
+  public:
     DATA data_;
   };
   template <typename T, typename DATA>
@@ -84,6 +85,8 @@ namespace vbg
 
     using Vector = std::vector<IntervalMap<Key, T>::Ptr>;
 
+    using UnorderedSet = std::unordered_set<ImData<Key, T>>;
+    using List = std::list<ImData<Key, T>>;
   public:
     IntervalMap(T notFoundVal);
 
@@ -100,6 +103,32 @@ namespace vbg
         history_.remove(search);
       }
       history_.push_back(myKey);
+    }
+
+    T find(Key key)
+    {
+      const ImData<Key, T> search(key, 0, T{0});
+      auto found = directHit_.find(search);
+      if (found != directHit_.end())
+      {
+        // std::cout << "Found " << (*found) << '\n';
+        return found->data_;
+      }
+      else
+      {
+        // std::cout << "Not found\n";
+        for (auto it(history_.rbegin());
+             history_.rend() != it;
+             ++it)
+        {
+          if (it->isInBetween(key))
+          {
+            // std::cout << *it << std::endl;
+            return it->data_;
+          }
+        }
+      }
+      return notFoundVal_;
     }
 
     friend std::ostream &operator<< <>(std::ostream &out, const IntervalMap<Key, T> &obj);
@@ -191,5 +220,12 @@ int main()
 
   std::cout << "im=" << im << "\n";
 
+  std::cout << "im[5]=" << im.find(5) << "\n";
+  std::cout << "im[6]=" << im.find(6) << "\n";
+  std::cout << "im[7]=" << im.find(7) << "\n";
+  std::cout << "im[27]=" << im.find(27) << "\n";
+
   return 0;
 }
+
+// -------------------------------------------------------------------------------------------------
