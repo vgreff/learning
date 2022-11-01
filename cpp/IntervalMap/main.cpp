@@ -210,19 +210,21 @@ int main()
 {
   using namespace vbg;
 
-  ImData<int, char> key(10, 20, 'E');
-  std::cout << "key=" << key << "\n";
+  // ImData<int, char> key(10, 20, 'E');
+  // std::cout << "key=" << key << "\n";
 
   IntervalMap<int64_t, char> im('A');
   im.add(5, 10, 'B');
   im.add(6, 15, 'D');
-  im.add(5, 20, 'C');
+  im.add(5, 22, 'C');
 
   std::cout << "im=" << im << "\n";
 
   std::cout << "im[5]=" << im.find(5) << "\n";
   std::cout << "im[6]=" << im.find(6) << "\n";
   std::cout << "im[7]=" << im.find(7) << "\n";
+  std::cout << "im[22]=" << im.find(22) << "\n";
+  std::cout << "im[21]=" << im.find(21) << "\n";
   std::cout << "im[27]=" << im.find(27) << "\n";
 
   return 0;
