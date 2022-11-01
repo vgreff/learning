@@ -115,6 +115,15 @@
 			"std::cout $0"
 		]
 	},
+	"comment separator": {
+		"prefix": "csp",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"// -------------------------------------------------------------------------------------------------"
+			"$0"
+		]
+	},
 	"std::cerr": {
 		"prefix": "cr",
 		"description": "",
