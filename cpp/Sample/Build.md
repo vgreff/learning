@@ -45,3 +45,5 @@ conan info ..
 conan --help
 
 
+conan info ./conanfile.py -g ./graph.html
+open ./graph.html

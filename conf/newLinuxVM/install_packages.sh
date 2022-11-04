@@ -25,8 +25,16 @@ sudo pip3 install conan
 else
 #------------------------------------------
 	echo "Ubuntu"
-echo "install code"
+
+# paste this for AWS
+sudo apt update
 sudo apt-get install -y wget gpg
+sudo apt install -y vim  
+sudo apt install -y rename
+sudo apt install -y emacs
+
+echo "install code"
+#sudo apt-get install -y wget gpg
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
@@ -36,26 +44,29 @@ sudo apt install -y apt-transport-https
 sudo apt update
 sudo apt install -y code
 
-sudo apt install -y emacs
 sudo apt install -y terminator
 
 # https://computingforgeeks.com/how-to-manage-c-packages-using-conan/
+# paste this for AWS
 sudo apt install -y  python3 python3-pip
 sudo apt-get install -y build-essential
 sudo apt install -y cmake ninja-build
 sudo pip3 install conan
+sudo apt install -y gh 
+sudo apt install -y gdb
+
+# paste this for AWS
+sudo apt install -y socat
+sudo apt install -y jq 
+sudo apt install -y jc 
+sudo apt install -y dnf
+sudo apt install -y tree
+sudo apt install -y ipython3
 
 sudo apt install -y cmake-qt-gui 
 sudo apt install -y meld
 sudo apt install -y gitk
-sudo apt install -y gh 
 sudo apt install -y ddd
-
-sudo apt install -y socat
-sudo apt install -y jq 
-sudo apt install -y dnf
-sudo apt install -y tree
-sudo apt install -y ipython3
 
 sudo snap install --classic ruby
 sudo apt install -y ncdu
@@ -63,8 +74,6 @@ sudo apt install -y xutils-dev
 sudo apt install -y texinfo
 sudo apt install -y zsh
 sudo apt install -y doxygen
-sudo apt install -y vim  
-sudo apt install -y rename
 
 sudo apt install -y open-vm-tools-desktop open-vm-tools
 lsmod | grep vmw
@@ -105,3 +114,10 @@ chmod +x ~/.docker/cli-plugins/docker-compose
 docker compose version
 
 fi
+
+echo "install aws cli"
+cd /tmp
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+cd -

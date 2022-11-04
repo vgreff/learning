@@ -1,5 +1,9 @@
 cd
+# this will ask for name of output files
 ssh-keygen -t rsa -b 4096 -C "vince@greffsite.com"
+
+# to name output files and current dir
+# ssh-keygen -t rsa -b 4096 -C "vince@greffsite.com" -f vg_rsa
 
 ls -la .ssh/
 

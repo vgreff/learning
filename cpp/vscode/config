@@ -1,0 +1,9 @@
+# Read more about SSH config files: https://linux.die.net/man/5/ssh_config
+Host aws
+    HostName 44.204.176.142
+    User ubuntu
+
+Host aws-key
+    HostName 44.204.176.142
+    User ubuntu
+    IdentityFile ~/.ssh/aws_rsa
