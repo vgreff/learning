@@ -1,11 +1,12 @@
+#!/usr/bin/bash
 
-alias now='date +%Y%m%d-%H%M%S'
+NOW=`date +%Y%m%d-%H%M%S`
 
 VSCODEUSERDIR=~/.vscode-server/data/User
 VSCODEUSERDIR=~/.config/Code/User
 
 
-tar cvzf /tmp/vscode-${USER}-settings-`now`.tar.gz   ${VSCODEUSERDIR}/*.json ${VSCODEUSERDIR}/snippets/
+tar cvzf /tmp/vscode-${USER}-settings-${NOW}.tar.gz   ${VSCODEUSERDIR}/*.json ${VSCODEUSERDIR}/snippets/
 
 cp keybindings.json settings.json ${VSCODEUSERDIR}/
 
