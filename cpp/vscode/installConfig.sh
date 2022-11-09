@@ -6,7 +6,9 @@ tar cvzf /tmp/vscode-${USER}-settings-`now`.tar.gz  ~/.config/Code/User/snippets
 cp keybindings.json settings.json ~/.config/Code/User/
 
 mkdir -p ~/.config/Code/User/snippets
-cp snippets/default-snippets-manager.code-snippets ~/.config/Code/User/snippets
+#cp snippets/default-snippets-manager.code-snippets ~/.config/Code/User/snippets
+rm -f ~/.config/Code/User/snippets/default-snippets-manager.code-snippets
+ln snippets/default-snippets-manager.code-snippets ~/.config/Code/User/snippets/default-snippets-manager.code-snippets
 
 # config is an example of remote-ssh config
 # cp config ~/.ssh/config
