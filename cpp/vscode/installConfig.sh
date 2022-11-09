@@ -1,14 +1,18 @@
 
 alias now='date +%Y%m%d-%H%M%S'
 
-tar cvzf /tmp/vscode-${USER}-settings-`now`.tar.gz  ~/.config/Code/User/snippets ~/.config/Code/User/*.json
+VSCODEUSERDIR=~/.vscode-server/data/User
+VSCODEUSERDIR=~/.config/Code/User
 
-cp keybindings.json settings.json ~/.config/Code/User/
 
-mkdir -p ~/.config/Code/User/snippets
+tar cvzf /tmp/vscode-${USER}-settings-`now`.tar.gz   ${VSCODEUSERDIR}/*.json ${VSCODEUSERDIR}/snippets/
+
+cp keybindings.json settings.json ${VSCODEUSERDIR}/
+
+mkdir -p ${VSCODEUSERDIR}/snippets
 #cp snippets/default-snippets-manager.code-snippets ~/.config/Code/User/snippets
-rm -f ~/.config/Code/User/snippets/default-snippets-manager.code-snippets
-ln snippets/default-snippets-manager.code-snippets ~/.config/Code/User/snippets/default-snippets-manager.code-snippets
+rm -f ${VSCODEUSERDIR}/snippets/default-snippets-manager.code-snippets
+ln snippets/default-snippets-manager.code-snippets ${VSCODEUSERDIR}/snippets/default-snippets-manager.code-snippets
 
 # config is an example of remote-ssh config
 # cp config ~/.ssh/config
