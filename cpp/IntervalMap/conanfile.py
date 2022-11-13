@@ -5,7 +5,7 @@ class IntervalMapAppConan(ConanFile):
     settings = [ "os", "compiler", "build_type", "arch" ]
 
     requires = [
-        "poco/1.9.4",
+#        "poco/1.12.2",
         "boost/1.80.0"
     ]
 

@@ -90,7 +90,7 @@ namespace vbg
   public:
     IntervalMap(T notFoundVal);
 
-    void add(const Key &keyStart, const Key &keyEnd, const T &val)
+    void add(const Key& keyStart, const Key& keyEnd, const T& val)
     {
       const ImData<Key, T> search(keyStart, keyEnd, val);
       ImData<Key, T> myKey(search);
@@ -104,8 +104,10 @@ namespace vbg
       }
       history_.push_back(myKey);
     }
+    
+    const T& operator[]( Key key ) const { return find(key); }
 
-    T find(Key key)
+    const T& find(Key key) const
     {
       const ImData<Key, T> search(key, 0, T{0});
       auto found = directHit_.find(search);
@@ -131,7 +133,7 @@ namespace vbg
       return notFoundVal_;
     }
 
-    friend std::ostream &operator<< <>(std::ostream &out, const IntervalMap<Key, T> &obj);
+    friend std::ostream& operator<< <>(std::ostream& out, const IntervalMap<Key, T>& obj);
 
   private:
     T notFoundVal_;
@@ -220,12 +222,19 @@ int main()
 
   std::cout << "im=" << im << "\n";
 
-  std::cout << "im[5]=" << im.find(5) << "\n";
-  std::cout << "im[6]=" << im.find(6) << "\n";
-  std::cout << "im[7]=" << im.find(7) << "\n";
+  std::cout << "im[5]=" <<  im.find(5 ) << "\n";
+  std::cout << "im[6]=" <<  im.find(6 ) << "\n";
+  std::cout << "im[7]=" <<  im.find(7 ) << "\n";
   std::cout << "im[22]=" << im.find(22) << "\n";
   std::cout << "im[21]=" << im.find(21) << "\n";
-  std::cout << "im[27]=" << im.find(27) << "\n";
+  std::cout << "im[27]=" << im.find(27) << "\n" << "\n";
+
+  std::cout << "im[5]=" <<  im[5 ] << "\n";
+  std::cout << "im[6]=" <<  im[6 ] << "\n";
+  std::cout << "im[7]=" <<  im[7 ] << "\n";
+  std::cout << "im[22]=" << im[22] << "\n";
+  std::cout << "im[21]=" << im[21] << "\n";
+  std::cout << "im[27]=" << im[27] << "\n";
 
   return 0;
 }
