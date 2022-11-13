@@ -243,6 +243,57 @@
 			"    return $2.first->second;"
 		]
 	},
+	"erase logic": {
+		"prefix": "era",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"  for (auto${4:&&} ${3:it} = ${2:coll}.begin(); $3 != $2.end(); )",
+			"  {",
+			"    if (*$3 % 2 == 0)",
+			"    {",
+			"      $3 = $2.erase($3);",
+			"    }",
+			"    else",
+			"    {",
+			"      ++$3;",
+			"    }",
+			"  }"
+		]
+	},
+	"for iter": {
+		"prefix": "forit",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"  for (auto${4:&&} ${3:it} = ${2:coll}.begin(); $3 != $2.end(); ++$3)",
+			"  {",
+			"    $3->$0",
+			"  }"
+		]
+	},
+	"lambda fct": {
+		"prefix": "lam",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"auto fct = [](std::string a, int b)",
+			"    {",
+			"      return std::move(a) + '-' + std::to_string(b);",
+			"    };"
+		]
+	},
+	"for vect": {
+		"prefix": "forv",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"for(${4|int64_t,uint64_t,int32_t,uint32_t,int16_t,uint16_t,int8_t,uint8_t|} ${1:i}=0, ${2:end}(${3:coll}.size());$1 < $2;++$1)",
+			"{",
+			"    $3[$1]$0",
+			"}"
+		]
+	},
 
 	"std::cerr": {
 		"prefix": "cr",
@@ -507,7 +558,15 @@
 		"prefix": "usum",
 		"scope": "cpp",
 		"body": [
-			"std::unordered_map<${1:Key}, ${2:T}, Hash = ${3:std::hash}<$1>, KeyEqual = ${3:std::equal_to}<$1>> ${0:myVar};"
+			"std::unordered_map<${1:Key}, ${2:T}, Hash = ${3:std::hash}<$1>, KeyEqual = ${4:std::equal_to}<$1>> ${0:myVar};"
+		]
+	},
+	"std::unordered_set<Key, Hash, KeyEqual>": {
+		"prefix": "usus",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"std::unordered_${4|set,multiset|}<${1:Key}, Hash = ${2:std::hash}<$1>, KeyEqual = ${3:std::equal_to}<$1>> ${0:myVar};"
 		]
 	},
 	"#include <unordered_map>": {
@@ -516,6 +575,15 @@
 		"scope": "cpp",
 		"body": [
 			"#include <unordered_map>",
+			"$0"
+		]
+	},
+	"#include <unordered_set>": {
+		"prefix": "isus",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"#include <unordered_set>",
 			"$0"
 		]
 	},
