@@ -27,7 +27,7 @@ else
 	echo "Ubuntu"
 
 # paste this for AWS
-sudo apt update
+sudo apt update 
 sudo apt-get install -y wget gpg
 sudo apt install -y vim  
 sudo apt install -y rename
@@ -41,7 +41,7 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packag
 rm -f packages.microsoft.gpg
 
 sudo apt install -y apt-transport-https
-sudo apt update
+sudo apt update && sudo apt upgrade
 sudo apt install -y code
 
 sudo apt install -y terminator
@@ -121,3 +121,6 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 sudo ./aws/install
 cd -
+
+echo "install rust"
+curl https://sh.rustup.rs -sSf | sh
