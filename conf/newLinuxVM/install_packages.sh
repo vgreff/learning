@@ -75,6 +75,11 @@ sudo apt install -y texinfo
 sudo apt install -y zsh
 sudo apt install -y doxygen
 
+#to enable ssh access to machine
+sudo apt install -y openssh-server
+#sudo service ssh status
+#sudo service ssh start
+
 sudo apt install -y open-vm-tools-desktop open-vm-tools
 lsmod | grep vmw
 
