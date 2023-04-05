@@ -80,6 +80,8 @@ sudo apt install -y openssh-server
 #sudo service ssh status
 #sudo service ssh start
 
+sudo apt install -y net-tools
+
 sudo apt install -y open-vm-tools-desktop open-vm-tools
 lsmod | grep vmw
 
