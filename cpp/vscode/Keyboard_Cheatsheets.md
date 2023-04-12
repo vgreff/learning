@@ -11,6 +11,8 @@ https://www.arungudelli.com/microsoft/visual-studio-code-keyboard-shortcut-cheat
 
 ### Keyboard Shortcuts Reference
 
+https://code.visualstudio.com/docs/getstarted/keybindings
+
 We also have a printable version of these keyboard shortcuts. Help > Keyboard Shortcut Reference displays a condensed PDF version suitable for printing as an easy reference.
 
 Below are links to the three platform-specific versions (US English keyboard):
