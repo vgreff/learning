@@ -3,12 +3,14 @@
 
 #include <iostream>
 
-class mod1c1
-{
-public:
+// namespace module1
+// {
+   class mod1c1
+   {
+   public:
+      int foo(int i);
+   };
 
-   void foo();
-
-};
+// } // namespace module1
 
 #endif

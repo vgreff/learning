@@ -14,7 +14,14 @@
         {
             "cwd": "/home/vgreff/gh/vgreff/learning/cpp/cpp_makefile_template/build/apps",
             "binaryPath": "/home/vgreff/gh/vgreff/learning/cpp/cpp_makefile_template/build/apps/program",
-            "binaryArgs": ["Makefile"]
+            "binaryArgs": [
+                "Makefile"
+            ]
+        },
+        {
+            "cwd": "/home/vgreff/gh/vgreff/learning/cpp/cpp_makefile_template/build/apps",
+            "binaryPath": "/home/vgreff/gh/vgreff/learning/cpp/cpp_makefile_template/build/apps/program",
+            "binaryArgs": []
         }
     ],
     "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
