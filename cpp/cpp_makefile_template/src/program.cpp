@@ -8,10 +8,19 @@
 
 int main(int argc, char const *argv[])
 {
-   if (argc < 2)
-   return 1;
+   if (argc > 1)
+   {
+      for (int i = 0; i < argc; i++)
+      {
+         printf("argv[%d]=%s %d\n",i,argv[i], argc);
+      }
+      
+   }
+   else
+   {
+      printf("argv[0]=%s %d\n",argv[0], argc);
+   }
 
-   printf("argv[1]=%s %d\n",argv[1], argc);
 
    std::vector<int> v;
    v.push_back(12);
@@ -23,7 +32,7 @@ int main(int argc, char const *argv[])
    mod2c1 m2c1;
    mod2c2 m2c2;
 
-   m1c1.foo();
+   m1c1.foo(5);
    m1c2.foo();
    m2c1.foo();
    m2c2.foo();

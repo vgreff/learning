@@ -1,0 +1,27 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "alt+d",
+        "command": "editor.action.duplicateSelection"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "deleteAllRight"
+    },
+    {
+        "key": "ctrl+alt+m",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "f7",
+        "command": "makefile.buildTarget"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "makefile.launchRun"
+    },
+    {
+        "key": "f5",
+        "command": "makefile.launchDebug"
+    }
+]
