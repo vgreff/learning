@@ -143,6 +143,13 @@ sudo apt install -y net-tools
 sudo apt install -y open-vm-tools-desktop open-vm-tools
 lsmod | grep vmw
 
+dnf install -y gcc-toolset-9
+dnf install -y gcc-toolset-10
+dnf install -y gcc-toolset-11
+dnf install -y gcc-toolset-12
+
+# scl enable gcc-toolset-12 bash
+
 #sudo apt list --upgradable
 #sudo apt upgrade
 
