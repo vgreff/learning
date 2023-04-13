@@ -15,21 +15,72 @@ yum check-update
 sudo yum install -y code
 sudo apt install -y terminator
 
-sudo yum install -y cmake3
+sudo yum install -y python3
+sudo yum install -y  cmake3
 sudo yum install -y epel-release
 sudo dnf config-manager --set-enabled powertools
 sudo yum install -y ninja-build
 sudo yum groupinstall "Development Tools" -y
 sudo pip3 install -y conan
 
-sudo yum install -y net-tools tar
 sudo yum install -y wget gpg
 sudo yum install -y vim  
 sudo yum install -y rename
 sudo yum install -y emacs
 
+sudo yum install -y gh 
+sudo yum install -y gdb
 
+# paste this for AWS
+sudo yum install -y socat
+sudo yum install -y jq 
+sudo yum install -y jc 
+sudo yum install -y dnf
+sudo yum install -y tree
+sudo yum install -y ipython3
+
+sudo yum install -y cmake-qt-gui 
+sudo yum install -y meld
+sudo yum install -y gitk
+sudo yum install -y ddd
+
+#sudo snap install --classic ruby
+sudo yum install -y ncdu
+sudo yum install -y xutils-dev
+sudo yum install -y texinfo
+sudo yum install -y zsh
+sudo yum install -y doxygen
+
+#to enable ssh access to machine
+sudo yum install -y openssh-server
+#sudo service ssh status
+#sudo service ssh start
+
+sudo yum install -y net-tools
+
+sudo yum install -y open-vm-tools-desktop open-vm-tools
+lsmod | grep vmw
+
+
+echo "install docker"
+sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf repolist -v
+dnf install -y docker-ce
+
+sudo systemctl enable --now docker
+systemctl is-active docker
+systemctl is-enabled docker
+
+curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose
+sudo mv docker-compose /usr/local/bin && sudo chmod +x /usr/local/bin/docker-compose
+
+sudo dnf install python3-pip
+
+sudo usermod -aG docker ${USER}
+
+groups
 else
+
 #------------------------------------------
 	echo "Ubuntu"
 
