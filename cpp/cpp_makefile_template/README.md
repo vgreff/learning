@@ -12,3 +12,6 @@ to print as array in debugger, add as a watch
 *(char* (*)[3])argv
 
 argc,x printed as HEX
+
+
+https://github.com/microsoft/vscode-makefile-tools/issues/148
