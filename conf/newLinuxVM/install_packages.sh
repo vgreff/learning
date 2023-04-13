@@ -15,12 +15,19 @@ yum check-update
 sudo yum install -y code
 sudo apt install -y terminator
 
-sudo yum install cmake
-sudo yum install epel-release
+sudo yum install -y cmake3
+sudo yum install -y epel-release
 sudo dnf config-manager --set-enabled powertools
-sudo yum install ninja-build
+sudo yum install -y ninja-build
 sudo yum groupinstall "Development Tools" -y
-sudo pip3 install conan
+sudo pip3 install -y conan
+
+sudo yum install -y net-tools tar
+sudo yum install -y wget gpg
+sudo yum install -y vim  
+sudo yum install -y rename
+sudo yum install -y emacs
+
 
 else
 #------------------------------------------
