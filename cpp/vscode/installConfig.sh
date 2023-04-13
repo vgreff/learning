@@ -2,9 +2,15 @@
 
 NOW=`date +%Y%m%d-%H%M%S`
 
+# remote-ssh
 VSCODEUSERDIR=~/.vscode-server/data/User
-VSCODEUSERDIR=~/.config/Code/User
 
+#vscode native on linux
+#VSCODEUSERDIR=~/.config/Code/User
+
+# if vscode in windows, must copy snippets/default-snippets-manager.code-snippets %APPDATA%\Code\User\ 
+# on windows 
+# VSCODEUSERDIR=%APPDATA%\Code\User\ 
 
 tar cvzf /tmp/vscode-${USER}-settings-${NOW}.tar.gz   ${VSCODEUSERDIR}/*.json ${VSCODEUSERDIR}/snippets/
 
