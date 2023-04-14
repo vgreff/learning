@@ -148,6 +148,9 @@ dnf install -y gcc-toolset-10
 dnf install -y gcc-toolset-11
 dnf install -y gcc-toolset-12
 
+curl -s https://packagecloud.io/install/repositories/eugeny/tabby/script.deb.sh | sudo bash
+sudo apt install -y tabby-terminal
+
 # scl enable gcc-toolset-12 bash
 
 #sudo apt list --upgradable
