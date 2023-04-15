@@ -28,7 +28,6 @@ sudo yum install -y vim
 sudo yum install -y rename
 sudo yum install -y emacs
 
-sudo yum install -y gh 
 sudo yum install -y gdb
 
 # paste this for AWS
@@ -38,6 +37,10 @@ sudo yum install -y jc
 sudo yum install -y dnf
 sudo yum install -y tree
 sudo yum install -y ipython3
+
+sudo dnf install -y 'dnf-command(config-manager)'
+sudo dnf config-manager -y --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+sudo dnf install -y gh
 
 sudo yum install -y cmake-qt-gui 
 sudo yum install -y meld
@@ -110,7 +113,6 @@ sudo apt install -y  python3 python3-pip
 sudo apt-get install -y build-essential
 sudo apt install -y cmake ninja-build
 sudo pip3 install conan
-sudo apt install -y gh 
 sudo apt install -y gdb
 
 # paste this for AWS
@@ -120,6 +122,10 @@ sudo apt install -y jc
 sudo apt install -y dnf
 sudo apt install -y tree
 sudo apt install -y ipython3
+
+sudo dnf install -y 'dnf-command(config-manager)'
+sudo dnf config-manager -y --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+sudo dnf install -y gh
 
 sudo apt install -y cmake-qt-gui 
 sudo apt install -y meld
