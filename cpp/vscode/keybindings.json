@@ -1,6 +1,18 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
     {
+        "key": "f7",
+        "command": "-makefile.buildTarget"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "-makefile.launchRun"
+    },
+    {
+        "key": "f5",
+        "command": "-makefile.launchDebug"
+    },
+    {
         "key": "ctrl+shift+k",
         "command": "deleteAllRight"
     },
@@ -61,5 +73,20 @@
     {
         "key": "shift+alt+enter",
         "command": "workbench.action.toggleEditorWidths"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "-cmake.debugTarget",
+        "when": "cmake:enableFullFeatureSet && inCMakeProject && !cmake:hideDebugCommand && !inDebugMode"
+    },
+    {
+        "key": "shift+f5",
+        "command": "-cmake.launchTarget",
+        "when": "cmake:enableFullFeatureSet && !cmake:hideDebugCommand && !inDebugMode"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "-expandLineSelection",
+        "when": "textInputFocus"
     }
 ]
