@@ -1,5 +1,7 @@
 Vscode debugger formatting 
 
+with gdb
+
 Var, comma syntax 
 I,x   Displays I as hex 
 
@@ -15,3 +17,11 @@ https://sourceware.org/gdb/current/onlinedocs/gdb.html/Arrays.html
 
 Summary at bottom of this page
 https://github.com/Microsoft/vscode-cpptools/issues/172
+
+
+with lldb
+
+parray 5 argv
+
+https://stackoverflow.com/questions/7062173/view-array-in-lldb-equivalent-of-gdbs-operator-in-xcode-4-1
+https://lldb.llvm.org/use/variable.html
