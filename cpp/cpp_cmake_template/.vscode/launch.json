@@ -32,6 +32,17 @@
                     "ignoreFailures": true
                 }
             ]
+        },
+        {
+            "name": "(lldb) args",
+            "type": "lldb",
+            "request": "launch",
+            // Resolved by CMake Tools:
+            "program": "${command:cmake.launchTargetPath}",
+            "args1": [],
+            "args": ["-f", "foo",],
+            "cwd": "${workspaceFolder}"
+            ]
         }
     ]
 }

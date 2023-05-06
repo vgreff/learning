@@ -54,6 +54,8 @@ sudo yum install -y texinfo
 sudo yum install -y zsh
 sudo yum install -y doxygen
 
+sudo yum install -y lldb clang clang-devel clang-tools-extra
+
 #to enable ssh access to machine
 sudo yum install -y openssh-server
 #sudo service ssh status
