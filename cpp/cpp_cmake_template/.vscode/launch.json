@@ -41,8 +41,9 @@
             "program": "${command:cmake.launchTargetPath}",
             "args1": [],
             "args": ["-f", "foo",],
-            "cwd": "${workspaceFolder}"
-            ]
+            "cwd": "${workspaceFolder}",
+            "MIMode": "lldb"
+        ]
         }
     ]
 }
