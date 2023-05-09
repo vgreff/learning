@@ -30,7 +30,7 @@ scl enable gcc-toolset-12 bash
 $PWD/../gcc-13.1.0/configure --prefix=$HOME/GCC/13.1.0 --enable-languages=c,c++ --disable-multilib
 
 
-make -j
+make -j 12
 make install
 
 gcc --version
@@ -42,5 +42,20 @@ gcc --version
 
 ```
 https://github.com/bminor/binutils-gdb
+
+cd binutils-gdb
+git tag |fgrep gdb-13 |fgrep rele
+
+git worktree add ../gdb-13.1-release gdb-13.1-release
+cd ../gdb-13.1-release
+
+scl enable gcc-toolset-12 bash
+
+mkdir objdir
+cd objdir
+../configure --prefix=$HOME/GDB/13.1
+
+make -j 12
+make install
 
 ```

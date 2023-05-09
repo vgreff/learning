@@ -13,7 +13,7 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 
 yum check-update
 sudo yum install -y code
-sudo apt install -y terminator
+sudo yum install -y terminator
 
 sudo yum install -y python3
 sudo yum install -y  cmake3
@@ -55,6 +55,13 @@ sudo yum install -y zsh
 sudo yum install -y doxygen
 
 sudo yum install -y lldb clang clang-devel clang-tools-extra
+
+#for compiling gdb 
+sudo yum install -y help2man
+sudo yum install -y expat
+sudo yum install -y expat-devel
+sudo yum install -y gmp-devel
+
 
 #to enable ssh access to machine
 sudo yum install -y openssh-server
@@ -155,6 +162,14 @@ dnf install -y gcc-toolset-9
 dnf install -y gcc-toolset-10
 dnf install -y gcc-toolset-11
 dnf install -y gcc-toolset-12
+
+sudo apt install -y lldb clang clang-devel clang-tools-extra
+
+#for compiling gdb 
+sudo apt install -y help2man
+sudo apt install -y expat
+sudo apt install -y expat-devel
+sudo apt install -y gmp-devel
 
 curl -s https://packagecloud.io/install/repositories/eugeny/tabby/script.deb.sh | sudo bash
 sudo apt install -y tabby-terminal

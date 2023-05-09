@@ -337,7 +337,7 @@
 		"body": [
 			"#include <${1|lib1/,c++/11/,boost/|}${2:header}${3:.hpp}>",
 			"$0"
-		]
+		]u
 	},
 	"#include local": {
 		"prefix": "il",
