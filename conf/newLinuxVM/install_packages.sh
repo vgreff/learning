@@ -7,11 +7,14 @@ then
 #------------------------------------------
 	echo "Redhat"
 
+sudo yum install -y net-tools
+sudo yum install -y wget gpg
+
 echo "install code"
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 
-yum check-update
+sudo yum check-update -y
 sudo yum install -y code
 sudo yum install -y terminator
 
@@ -62,13 +65,17 @@ sudo yum install -y expat
 sudo yum install -y expat-devel
 sudo yum install -y gmp-devel
 
+dnf install -y gcc-toolset-9
+dnf install -y gcc-toolset-10
+dnf install -y gcc-toolset-11
+dnf install -y gcc-toolset-12
 
 #to enable ssh access to machine
 sudo yum install -y openssh-server
 #sudo service ssh status
 #sudo service ssh start
 
-sudo yum install -y net-tools
+
 
 sudo yum install -y open-vm-tools-desktop open-vm-tools
 lsmod | grep vmw
@@ -86,7 +93,7 @@ systemctl is-enabled docker
 curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose
 sudo mv docker-compose /usr/local/bin && sudo chmod +x /usr/local/bin/docker-compose
 
-sudo dnf install python3-pip
+sudo dnf install -y python3-pip
 
 sudo usermod -aG docker ${USER}
 
@@ -97,11 +104,12 @@ else
 	echo "Ubuntu"
 
 # paste this for AWS
-sudo apt update 
+sudo apt update -y
 sudo apt-get install -y wget gpg
 sudo apt install -y vim  
 sudo apt install -y rename
 sudo apt install -y emacs
+sudo apt install -y net-tools
 
 echo "install code"
 #sudo apt-get install -y wget gpg
@@ -111,7 +119,7 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packag
 rm -f packages.microsoft.gpg
 
 sudo apt install -y apt-transport-https
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y 
 sudo apt install -y code
 
 sudo apt install -y terminator
@@ -152,8 +160,6 @@ sudo apt install -y doxygen
 sudo apt install -y openssh-server
 #sudo service ssh status
 #sudo service ssh start
-
-sudo apt install -y net-tools
 
 sudo apt install -y open-vm-tools-desktop open-vm-tools
 lsmod | grep vmw
