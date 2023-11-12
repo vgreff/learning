@@ -10,13 +10,13 @@ then
 sudo yum install -y net-tools
 sudo yum install -y wget gpg
 
-echo "install code"
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+# echo "install code"
+# sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+# sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 
 sudo yum check-update -y
-sudo yum install -y code
-sudo yum install -y terminator
+# sudo yum install -y code
+# sudo yum install -y terminator
 
 sudo yum install -y python3
 sudo yum install -y  cmake3
@@ -24,7 +24,7 @@ sudo yum install -y epel-release
 sudo dnf config-manager --set-enabled powertools
 sudo yum install -y ninja-build
 sudo yum groupinstall "Development Tools" -y
-sudo pip3 install -y conan
+sudo pip3 install conan
 
 sudo yum install -y wget gpg
 sudo yum install -y vim  
@@ -56,6 +56,7 @@ sudo yum install -y xutils-dev
 sudo yum install -y texinfo
 sudo yum install -y zsh
 sudo yum install -y doxygen
+sudo yum install -y pv tcpreplay wireshark
 
 sudo yum install -y lldb clang clang-devel clang-tools-extra
 
@@ -64,6 +65,10 @@ sudo yum install -y help2man
 sudo yum install -y expat
 sudo yum install -y expat-devel
 sudo yum install -y gmp-devel
+
+
+curl -s https://packagecloud.io/install/repositories/eugeny/tabby/script.rpm.sh | sudo bash
+sudo apt install -y tabby-terminal
 
 dnf install -y gcc-toolset-9
 dnf install -y gcc-toolset-10
@@ -98,6 +103,7 @@ sudo dnf install -y python3-pip
 sudo usermod -aG docker ${USER}
 
 groups
+
 else
 
 #------------------------------------------
@@ -111,18 +117,18 @@ sudo apt install -y rename
 sudo apt install -y emacs
 sudo apt install -y net-tools
 
-echo "install code"
-#sudo apt-get install -y wget gpg
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-rm -f packages.microsoft.gpg
+# echo "install code"
+# #sudo apt-get install -y wget gpg
+# wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+# sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+# sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+# rm -f packages.microsoft.gpg
 
 sudo apt install -y apt-transport-https
 sudo apt update && sudo apt upgrade -y 
-sudo apt install -y code
+# sudo apt install -y code
 
-sudo apt install -y terminator
+# sudo apt install -y terminator
 
 # https://computingforgeeks.com/how-to-manage-c-packages-using-conan/
 # paste this for AWS
@@ -155,6 +161,7 @@ sudo apt install -y xutils-dev
 sudo apt install -y texinfo
 sudo apt install -y zsh
 sudo apt install -y doxygen
+sudo apt install -y pv tcpreplay wireshark
 
 #to enable ssh access to machine
 sudo apt install -y openssh-server
@@ -226,5 +233,5 @@ unzip awscliv2.zip
 sudo ./aws/install
 cd -
 
-echo "install rust"
-curl https://sh.rustup.rs -sSf | sh
+# echo "install rust"
+# curl https://sh.rustup.rs -sSf | sh

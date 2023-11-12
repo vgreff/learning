@@ -8,6 +8,10 @@ from https://computingforgeeks.com/how-to-manage-c-packages-using-conan/
 create a build profile for conan 
 for defining compiler , os 
 
+```
+conan profile detect --force
+```
+
 or copy the example below
 ```
 cp ../_conan/profiles ~/.conan
@@ -21,6 +25,9 @@ rm -rf build
 mkdir build
 cd build
 conan install ..
+
+# or  
+conan install . --output-folder=build --build=missing
 
 cmake .. -G Ninja 
 ninja
@@ -45,3 +52,11 @@ conan info ..
 
 conan --help
 
+## to simply build in vscode
+
+```
+conan profile detect --force
+conan install . --output-folder=build --build=missing
+```
+
+the use cmake pluggin
