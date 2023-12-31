@@ -74,13 +74,16 @@ dnf install -y gcc-toolset-9
 dnf install -y gcc-toolset-10
 dnf install -y gcc-toolset-11
 dnf install -y gcc-toolset-12
+dnf install -y gcc-toolset-13
 
 #to enable ssh access to machine
 sudo yum install -y openssh-server
 #sudo service ssh status
 #sudo service ssh start
 
-
+sudo yum install -y kernel-devel
+sudo yum install -y perl-IPC-Cmd
+sudo dnf install -y autoconf automake autoconf-archive
 
 sudo yum install -y open-vm-tools-desktop open-vm-tools
 lsmod | grep vmw
@@ -175,6 +178,7 @@ dnf install -y gcc-toolset-9
 dnf install -y gcc-toolset-10
 dnf install -y gcc-toolset-11
 dnf install -y gcc-toolset-12
+dnf install -y gcc-toolset-13
 
 sudo apt install -y lldb clang clang-devel clang-tools-extra
 

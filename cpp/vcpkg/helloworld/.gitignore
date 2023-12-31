@@ -1,4 +1,4 @@
 build/
 build.*/
 opt/
-graph.html
+vcpkg_installed/

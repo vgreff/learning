@@ -1,0 +1,8 @@
+{
+  "dependencies": [
+    "fmt", "boost"
+  ],
+  "overrides": [
+      { "name": "boost", "version": "1.81.0#2" }
+  ]    
+}
