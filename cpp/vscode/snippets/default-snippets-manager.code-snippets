@@ -205,14 +205,6 @@
 			"    }"
 		]
 	},
-	"std::cout": {
-		"prefix": "ct",
-		"description": "",
-		"scope": "cpp",
-		"body": [
-			"std::cout $0"
-		]
-	},
 	"stl find": {
 		"prefix": "usf",
 		"description": "",
@@ -294,7 +286,40 @@
 			"}"
 		]
 	},
-
+	"template function": {
+		"prefix": "uft",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"template <typename ${1:T1}>",
+			"$1 ${2:fct}($1 in)",
+			"{",
+			"  return in;",
+			"}",
+			""
+		]
+	},
+	"template function type": {
+		"prefix": "uftt",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"template <typename ${1:T1}>",
+			"${2|const , |}$1${3|&,*, |} ${4:fct}($2$1$3 in)",
+			"{",
+			"  return in;",
+			"}",
+			""
+		]
+	},
+	"std::cout": {
+		"prefix": "ct",
+		"description": "",
+		"scope": "cpp",
+		"body": [
+			"std::cout $0"
+		]
+	},
 	"std::cerr": {
 		"prefix": "cr",
 		"description": "",
