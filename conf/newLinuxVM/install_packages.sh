@@ -39,6 +39,7 @@ sudo yum install -y jq
 sudo yum install -y jc 
 sudo yum install -y dnf
 sudo yum install -y tree
+sudo yum install -y htop
 sudo yum install -y ipython3
 
 sudo dnf install -y 'dnf-command(config-manager)'
@@ -147,6 +148,7 @@ sudo apt install -y jq
 sudo apt install -y jc 
 sudo apt install -y dnf
 sudo apt install -y tree
+sudo apt install -y htop
 sudo apt install -y ipython3
 
 sudo dnf install -y 'dnf-command(config-manager)'
