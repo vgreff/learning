@@ -81,6 +81,8 @@ dnf install -y gcc-toolset-13
 sudo yum install -y openssh-server
 #sudo service ssh status
 #sudo service ssh start
+sudo systemctl enable sshd
+sudo systemctl start sshd
 
 sudo yum install -y kernel-devel
 sudo yum install -y perl-IPC-Cmd
@@ -172,6 +174,8 @@ sudo apt install -y pv tcpreplay wireshark
 sudo apt install -y openssh-server
 #sudo service ssh status
 #sudo service ssh start
+sudo systemctl enable sshd
+sudo systemctl start sshd
 
 sudo apt install -y open-vm-tools-desktop open-vm-tools
 lsmod | grep vmw
