@@ -67,6 +67,7 @@ sudo yum install -y expat
 sudo yum install -y expat-devel
 sudo yum install -y gmp-devel
 
+sudo yum install -y cloud-utils-growpart 
 
 curl -s https://packagecloud.io/install/repositories/eugeny/tabby/script.rpm.sh | sudo bash
 sudo apt install -y tabby-terminal
@@ -89,6 +90,8 @@ sudo yum install -y perl-IPC-Cmd
 sudo dnf install -y autoconf automake autoconf-archive
 
 sudo yum install -y open-vm-tools-desktop open-vm-tools
+sudo yum install -y libatomic binutils
+
 lsmod | grep vmw
 
 
