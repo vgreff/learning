@@ -97,8 +97,12 @@ sudo yum install -y cloud-utils-growpart
 sudo yum install -y sqlite sqlite-devel
 
 # sudo yum install -y mysql-server
-sudo yum install -y mariadb-server
-sudo yum install -y mariadb-devel
+curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
+sudo yum update --allowerasing
+
+sudo dnf install MariaDB-server galera-4 MariaDB-client MariaDB-shared MariaDB-backup MariaDB-common
+# sudo yum install -y mariadb-server
+# sudo yum install -y mariadb-devel
 
 lsmod | grep vmw
 
