@@ -92,6 +92,14 @@ sudo dnf install -y autoconf automake autoconf-archive
 sudo yum install -y open-vm-tools-desktop open-vm-tools
 sudo yum install -y libatomic binutils
 
+sudo yum install -y cloud-utils-growpart
+
+sudo yum install -y sqlite sqlite-devel
+
+# sudo yum install -y mysql-server
+sudo yum install -y mariadb-server
+sudo yum install -y mariadb-devel
+
 lsmod | grep vmw
 
 
