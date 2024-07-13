@@ -21,6 +21,7 @@ int main(int argc, char** argv)
 
     // create a session
     Session session("mysql", "host=127.0.0.1;port=3306;db=nation;user=user1;password=password1");
+    // Session session("mysql", "host=localhost4;port=3306;db=nation;user=user1;password=password1");
 
     // drop sample table, if it exists
     session << "DROP TABLE IF EXISTS Person", now;
