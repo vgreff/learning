@@ -1,8 +1,14 @@
 {
   "dependencies": [
-    "fmt", "boost"
+    "fmt", 
+    "boost",
+    {
+      "name": "poco",
+      "features": ["sqlite3", "mysql", "mariadb"]
+    }
   ],
   "overrides": [
       { "name": "boost", "version": "1.81.0#2" }
+          // "mysql-connector-cpp"
   ]    
 }
