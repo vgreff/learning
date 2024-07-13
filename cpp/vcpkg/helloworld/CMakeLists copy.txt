@@ -1,0 +1,37 @@
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_TOOLCHAIN_FILE /home/vgreff/gh/oss/vcpkg/scripts/buildsystems/vcpkg.cmake CACHE STRING "Vcpkg toolchain file")
+
+
+project(HelloWorld)
+
+find_package(fmt CONFIG REQUIRED)
+# find_package(Boost 1.83 REQUIRED)
+# find_package(libmariadb CONFIG REQUIRED)
+find_package(Poco  REQUIRED COMPONENTS DataSQLite DataMySQL)
+
+find_package(unofficial-libmariadb CONFIG REQUIRED)
+# find_package(unofficial-mysql-connector-cpp CONFIG REQUIRED)
+# find_package(Boost 1.83 REQUIRED)
+# find_package(libmariadb CONFIG REQUIRED)
+find_package(Poco  REQUIRED COMPONENTS DataSQLite DataMySQL)
+
+find_package(unofficial-libmariadb CONFIG REQUIRED)
+# find_package(unofficial-mysql-connector-cpp CONFIG REQUIRED)
+
+add_executable(HelloWorld helloworld.cpp)
+target_link_libraries(HelloWorld PRIVATE fmt::fmt )
+target_link_libraries(HelloWorld PRIVATE fmt::fmt )
+# target_link_libraries(HelloWorld PRIVATE Boost::boost-tti)
+
+add_executable(poco_sqlite_demo poco_sqlite_demo.cpp)
+target_link_libraries(poco_sqlite_demo PRIVATE Poco::DataSQLite )
+
+add_executable(poco_mysql_demo poco_mysql_demo.cpp)
+target_link_libraries(poco_mysql_demo PRIVATE Poco::DataMySQL )
+
+add_executable(maria_c_conn_demo maria_c_conn_demo.cpp)
+target_link_libraries(maria_c_conn_demo PRIVATE unofficial::libmariadb )
+
+# add_executable(db_cpp_demo db_cpp_demo.cpp)
+# target_link_libraries(db_cpp_demo PRIVATE myunofficial::mysql-connector-cpp::connectorsqlcppconn)
