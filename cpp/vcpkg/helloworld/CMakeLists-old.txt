@@ -6,12 +6,7 @@ set(CMAKE_TOOLCHAIN_FILE /home/vgreff/gh/oss/vcpkg/scripts/buildsystems/vcpkg.cm
 project(HelloWorld)
 
 find_package(fmt CONFIG REQUIRED)
-# find_package(Boost 1.83 REQUIRED)
-# find_package(libmariadb CONFIG REQUIRED)
-find_package(Poco  REQUIRED COMPONENTS DataSQLite DataMySQL)
 
-find_package(unofficial-libmariadb CONFIG REQUIRED)
-# find_package(unofficial-mysql-connector-cpp CONFIG REQUIRED)
 # find_package(Boost 1.83 REQUIRED)
 # find_package(libmariadb CONFIG REQUIRED)
 find_package(Poco  REQUIRED COMPONENTS DataSQLite DataMySQL)
@@ -20,7 +15,6 @@ find_package(unofficial-libmariadb CONFIG REQUIRED)
 # find_package(unofficial-mysql-connector-cpp CONFIG REQUIRED)
 
 add_executable(HelloWorld helloworld.cpp)
-target_link_libraries(HelloWorld PRIVATE fmt::fmt )
 target_link_libraries(HelloWorld PRIVATE fmt::fmt )
 # target_link_libraries(HelloWorld PRIVATE Boost::boost-tti)
 
