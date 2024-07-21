@@ -14,6 +14,16 @@ sudo yum install -y wget gpg
 # sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 # sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 
+
+if rpm -q --quiet redhat-release-server; then
+    REDHAT_RELEASE=$(rpm -q --qf "%{VERSION}\n" redhat-release-server)
+    if [[ $REDHAT_RELEASE == 8* ]]; then
+        sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+    elif [[ $REDHAT_RELEASE == 9* ]]; then
+        sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+    fi
+fi
+
 sudo yum check-update -y
 # sudo yum install -y code
 # sudo yum install -y terminator
@@ -110,7 +120,7 @@ lsmod | grep vmw
 echo "install docker"
 sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
 sudo dnf repolist -v
-dnf install -y docker-ce
+sudo dnf install -y docker-ce
 
 sudo systemctl enable --now docker
 systemctl is-active docker
