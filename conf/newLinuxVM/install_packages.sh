@@ -15,11 +15,11 @@ sudo yum install -y wget gpg
 # sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 
 
-if rpm -q --quiet redhat-release-server; then
-    REDHAT_RELEASE=$(rpm -q --qf "%{VERSION}\n" redhat-release-server)
-    if [[ $REDHAT_RELEASE == 8* ]]; then
+if [ -f /etc/redhat-release ]; then
+    REDHAT_VERSION=$(sed  's/^.*release //g' /etc/redhat-release | sed 's/\..*$//g' |head -n 1)
+    if [[ $REDHAT_VERSION == 8* ]]; then
         sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-    elif [[ $REDHAT_RELEASE == 9* ]]; then
+    elif [[ $REDHAT_VERSION == 9* ]]; then
         sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
     fi
 fi
@@ -110,7 +110,7 @@ sudo yum install -y sqlite sqlite-devel
 curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
 sudo yum update --allowerasing
 
-sudo dnf install MariaDB-server galera-4 MariaDB-client MariaDB-shared MariaDB-backup MariaDB-common
+sudo dnf install -y  MariaDB-server galera-4 MariaDB-client MariaDB-shared MariaDB-backup MariaDB-common
 # sudo yum install -y mariadb-server
 # sudo yum install -y mariadb-devel
 
