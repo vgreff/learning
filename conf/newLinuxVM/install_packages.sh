@@ -82,11 +82,12 @@ sudo yum install -y cloud-utils-growpart
 curl -s https://packagecloud.io/install/repositories/eugeny/tabby/script.rpm.sh | sudo bash
 sudo apt install -y tabby-terminal
 
-dnf install -y gcc-toolset-9
-dnf install -y gcc-toolset-10
+# dnf install -y gcc-toolset-9
+# dnf install -y gcc-toolset-10
 dnf install -y gcc-toolset-11
 dnf install -y gcc-toolset-12
 dnf install -y gcc-toolset-13
+# dnf install -y gcc-toolset-14
 
 #to enable ssh access to machine
 sudo yum install -y openssh-server
@@ -205,11 +206,12 @@ sudo systemctl start sshd
 sudo apt install -y open-vm-tools-desktop open-vm-tools
 lsmod | grep vmw
 
-dnf install -y gcc-toolset-9
-dnf install -y gcc-toolset-10
-dnf install -y gcc-toolset-11
+# dnf install -y gcc-toolset-9
+# dnf install -y gcc-toolset-10
+# dnf install -y gcc-toolset-11
 dnf install -y gcc-toolset-12
 dnf install -y gcc-toolset-13
+dnf install -y gcc-toolset-14
 
 sudo apt install -y lldb clang clang-devel clang-tools-extra
 
