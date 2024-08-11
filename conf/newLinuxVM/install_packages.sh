@@ -21,6 +21,12 @@ if [ -f /etc/redhat-release ]; then
         sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
     elif [[ $REDHAT_VERSION == 9* ]]; then
         sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+        sudo dnf config-manager --enable rhel-9-for-x86_64-baseos-rpms
+        sudo dnf config-manager --enable rhel-9-for-x86_64-appstream-rpms
+        #sudo dnf config-manager --enable rhel-9-for-x86_64-supplementary-rpms
+        sudo dnf config-manager --enable codeready-builder-for-rhel-9-x86_64-rpms
+        # dnf repolist --all |fgrep rhel-9
+
     fi
 fi
 
