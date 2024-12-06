@@ -174,6 +174,7 @@ sudo apt install -y  python3 python3-pip
 sudo apt-get install -y build-essential
 sudo apt install -y cmake ninja-build
 sudo pip3 install conan
+sudo pip3 install conan --upgrade
 sudo apt install -y gdb
 
 # paste this for AWS
