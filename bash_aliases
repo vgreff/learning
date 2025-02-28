@@ -17,7 +17,9 @@ setenv EDITOR vi
 
 #*********** aliases  *****************************************************
 
-alias gitc='git clone ' 
+alias gitc='git clone --recursive ' 
+alias gitlf='git lfs pull '
+alias gitsub='git submodule update --init --recursive  '
 
 alias bl="/bin/ls"
 alias l="ls -o"
