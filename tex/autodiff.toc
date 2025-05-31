@@ -1,0 +1,30 @@
+\contentsline {section}{\numberline {1}Description}{2}{section.1}%
+\contentsline {section}{\numberline {2}Examples}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Example 1: Single-variable derivatives}{2}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Calculate derivatives of $f(x)=x^4$ at $x=2$.}{2}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Example 2: Multi-variable mixed partial derivatives with multi-precision data type}{3}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Calculate $\frac {\partial ^{12}f}{\partial w^{3}\partial x^{2}\partial y^{4}\partial z^{3}}(11,12,13,14)$ with a precision of about 50 decimal digits,\\ where $f(w,x,y,z)=\exp \left (w\sin \left (\frac {x\log (y)}{z}\right )+\sqrt {\frac {wz}{xy}}\right )+\frac {w^2}{\tan (z)}$.}{3}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}Example 3: Black-Scholes Option Pricing with Greeks Automatically Calculated}{4}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Calculate greeks directly from the Black-Scholes pricing function.}{4}{subsubsection.2.3.1}%
+\contentsline {section}{\numberline {3}Advantages of Automatic Differentiation}{5}{section.3}%
+\contentsline {section}{\numberline {4}Mathematics}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Truncated Taylor Series}{6}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Example}{6}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Arithmetic}{7}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Addition}{7}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Subtraction}{7}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Multiplication}{7}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Division}{8}{subsubsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.3}General Functions}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Multiple Variables}{9}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Declaring Multiple Variables}{9}{subsubsection.4.4.1}%
+\contentsline {section}{\numberline {5}Writing Functions for Autodiff Compatibility}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Piecewise-Rational Functions}{10}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Functions That Call Existing Autodiff Functions}{11}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}New Functions For Which The Derivatives Can Be Calculated}{11}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Function Writing Guidelines}{12}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Example 1: $f(x)=\max (0,x)$}{12}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Example 2: $f(x)=\sinc (x)$}{13}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Example 3: $f(x)=\sqrt x$ and $f'(0)=\infty $}{14}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Summary}{14}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Acknowledgments}{15}{section.7}%
